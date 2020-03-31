@@ -28,6 +28,7 @@ export class GoogleReCaptchaProvider extends React.Component<
 > {
   scriptId = 'google-recaptcha-v3';
   googleRecaptchaSrc = 'https://www.google.com/recaptcha/api.js';
+  chinaRecaptchaSrc = 'https://www.recaptcha.net/recaptcha/api.js';
   resolver: any = undefined;
   rejecter: any = undefined;
 
@@ -91,7 +92,7 @@ export class GoogleReCaptchaProvider extends React.Component<
 
     const js = document.createElement('script');
     js.id = this.scriptId;
-    js.src = `${this.googleRecaptchaSrc}?render=${reCaptchaKey}${
+    js.src = `${language === 'zh' ? this.chinaRecaptchaSrc : this.googleRecaptchaSrc}?render=${reCaptchaKey}${
       language ? `&hl=${language}` : ''
     }`;
     js.onload = this.handleOnLoad;
