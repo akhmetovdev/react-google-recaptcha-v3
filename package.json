@@ -9,6 +9,7 @@
     "test": "jest --verbose --env=jsdom",
     "build": "rollup -c rollup.config.js",
     "prepublish": "npm run test && npm run build",
+    "postinstall": "npm run build",
     "build-example": "webpack --config webpack.config.js",
     "lint": "tslint -c tslint.json 'src/**/*.ts'"
   },
